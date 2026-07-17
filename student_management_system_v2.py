@@ -1,9 +1,17 @@
 # LEVEL 1 (creating a class and printing the menu)
 
+# LEVEL 4
+
+class Student:
+    def __init__(self,Roll_no,Name,Marks):
+        self.Roll_no=Roll_no
+        self.Name=Name
+        self.Marks=Marks
 
 class student_management_system_v2:
     def __init__(self):
         self.students= []
+        self.Program_running= True
 
     def menu(self):
         print("====STUDENT MANAGEMENT SYSTEM====")
@@ -43,8 +51,9 @@ class student_management_system_v2:
             exit_choice= input("Y or N: ")
             if exit_choice.upper()=='Y':
                 print("Exiting the application....")
+                self.Program_running=False
             else:
-                sms_v2.menu()
+                # sms_v2.menu()
     
     # LEVEL 5
     def add_student(self):
@@ -55,18 +64,13 @@ class student_management_system_v2:
         student_details= Student(Roll_no,Name,Marks) # LEVEL 5 END
         self.students.append(student_details)
         
+    def view_student(self):
 
         
-sms_v2= student_management_system_v2()
-user_choice_in_menu= (sms_v2.menu())
-sms_v2.choice_handle(user_choice_in_menu)
+sms_v2 = student_management_system_v2()
+
+while sms_v2.Program_running:
+    user_choice_in_menu = sms_v2.menu()
+    sms_v2.choice_handle(user_choice_in_menu)
 
 
-
-# LEVEL 4
-
-class Student:
-    def __init__(self,Roll_no,Name,Marks):
-        self.Roll_no=Roll_no
-        self.Name=Name
-        self.Marks=Marks
