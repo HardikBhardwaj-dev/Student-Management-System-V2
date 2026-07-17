@@ -20,8 +20,18 @@ class student_management_system_v2:
         print()
         print()
 
-        user_choice= int(input("Enter the number according to your choice: "))   # Exception handling will be added if the given input is not integer
-        return user_choice
+        try:
+            user_choice= int(input("Enter the number according to your choice: "))   # Exception handling will be added if the given input is not integer
+            if user_choice>=1 and user_choice<7:
+                return user_choice
+            else:
+                print("Enter the option from 1-6")
+                return self.menu()
+        except ValueError:
+            print("Must be an integer input ex: 1,2,3..")
+            return self.menu()
+
+        
 
 
 
@@ -57,9 +67,21 @@ class student_management_system_v2:
                 pass
     
     def add_student(self):
-        Roll_no= int(input("Enter the Roll No of the student: "))
+        while True:
+            try:
+                Roll_no= int(input("Enter the Roll No of the student: "))
+                break
+            except ValueError:
+                print("Roll no of the student can only be in integers ex: 1,2,3,4....")
+
         Name= input("Enter the name of the student: ")
-        Marks= int(input("Enter the Marks of the student: "))
+        
+        while True:
+            try:
+                Marks= int(input("Enter the Marks of the student: "))
+                break
+            except ValueError:
+                print("Marks of the student can only be in integer ex: 1,2,3,4....")
 
         student_details= Student(Roll_no,Name,Marks) # LEVEL 5 END
         self.students.append(student_details)
@@ -77,7 +99,12 @@ class student_management_system_v2:
         if len(self.students)==0:
             print("No student found in the records.")
         else:
-            roll_number_to_be_searched= int(input("Enter the roll number of the student to search: "))
+            while True:
+                try:
+                    roll_number_to_be_searched= int(input("Enter the roll number of the student to search: "))
+                    break
+                except ValueError:
+                    print("Roll no of the student can only be in integers ex: 1,2,3,4....")
             for stu in self.students:
                 if roll_number_to_be_searched== stu.Roll_no:
                     print(stu.Roll_no)
@@ -92,11 +119,21 @@ class student_management_system_v2:
         if len(self.students)==0:
             print("No student found in the records.")
         else:
-            roll_number_to_be_updated= int(input("Enter the roll number of the student to update: "))
+            while True:
+                try:
+                    roll_number_to_be_updated= int(input("Enter the roll number of the student to update: "))
+                    break
+                except ValueError:
+                    print("Roll no of the student can only be in integers ex: 1,2,3,4....")
             for stu in self.students:
                 if roll_number_to_be_updated==stu.Roll_no:
                     updated_name= input("Enter the new name of studnet: ")
-                    updated_marks= int(input("Enter the new marks of the student: "))
+                    while True:
+                        try:
+                            updated_marks = int(input("Enter the new marks of the student: "))
+                            break
+                        except ValueError:
+                            print("Marks should be integer only")
                     stu.Marks= updated_marks
                     stu.Name= updated_name
                     print("Student updated successfully.")
@@ -110,7 +147,12 @@ class student_management_system_v2:
         if len(self.students)==0:
             print("No student found in the records.")
         else:
-            roll_number_to_be_deleted= int(input("Enter the roll number of the student whose record you want to delete: "))
+            while True:
+                try:
+                    roll_number_to_be_deleted= int(input("Enter the roll number of the student whose record you want to delete: "))
+                    break
+                except ValueError:
+                    print("Roll no of the student can only be in integers ex: 1,2,3,4....")
             for stu in self.students:
                 if roll_number_to_be_deleted== stu.Roll_no:
                     self.students.remove(stu)
