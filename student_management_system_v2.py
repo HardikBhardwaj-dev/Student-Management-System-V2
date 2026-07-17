@@ -3,7 +3,7 @@
 
 class student_management_system_v2:
     def __init__(self):
-        pass
+        
     def menu(self):
         print("====STUDENT MANAGEMENT SYSTEM====")
         print("1. Add Student")
@@ -43,10 +43,27 @@ class student_management_system_v2:
                 print("Exiting the application....")
             else:
                 sms_v2.menu()
-        
+    
+    # LEVEL 5
+    def add_student(self):
+        Roll_no= int(input("Enter the Roll No of the student: "))
+        Name= input("Enter the name of the student: ")
+        Marks= int(input("Enter the Marks of the student: "))
+
+        student_details= Student(Roll_no,Name,Marks) # LEVEL 5 END
         
 
         
 sms_v2= student_management_system_v2()
 user_choice_in_menu= (sms_v2.menu())
 sms_v2.choice_handle(user_choice_in_menu)
+
+
+
+# LEVEL 4
+
+class Student:
+    def __init__(self,Roll_no,Name,Marks):
+        self.Roll_no=Roll_no
+        self.Name=Name
+        self.Marks=Marks
