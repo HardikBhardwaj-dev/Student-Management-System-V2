@@ -40,6 +40,7 @@ class student_management_system_v2:
             self.update_student()
         elif user_choice== 4:
             print("You have selected to delete a student.")
+            self.delete_student()
         elif user_choice== 5:
             print("You have selected to search for a student.")
             self.search_student()
@@ -53,6 +54,7 @@ class student_management_system_v2:
                 self.Program_running=False
             else:
                 # sms_v2.menu()
+                pass
     
     def add_student(self):
         Roll_no= int(input("Enter the Roll No of the student: "))
@@ -82,29 +84,45 @@ class student_management_system_v2:
                     print(stu.Name)
                     print(stu.Marks)
                     break
+            else:
+                print("No student with this roll number found in records.")
+            
 
     def update_student(self):
         if len(self.students)==0:
             print("No student found in the records.")
         else:
-            roll_number_to_be_updated= int(input("Enter the roll number of the student to update"))
+            roll_number_to_be_updated= int(input("Enter the roll number of the student to update: "))
             for stu in self.students:
                 if roll_number_to_be_updated==stu.Roll_no:
                     updated_name= input("Enter the new name of studnet: ")
                     updated_marks= int(input("Enter the new marks of the student: "))
                     stu.Marks= updated_marks
                     stu.Name= updated_name
+                    print("Student updated successfully.")
                     break
-                    
+            else:
+                print("No student with this roll number found in records.")
 
 
 
+    def delete_student(self):
+        if len(self.students)==0:
+            print("No student found in the records.")
+        else:
+            roll_number_to_be_deleted= int(input("Enter the roll number of the student whose record you want to delete: "))
+            for stu in self.students:
+                if roll_number_to_be_deleted== stu.Roll_no:
+                    self.students.remove(stu)
+                    print("Student deleted successfully.")
+                    break
+            else:
+                print("No student with this roll number found in records.")
 
-        
+
+
 sms_v2 = student_management_system_v2()
 
 while sms_v2.Program_running:
     user_choice_in_menu = sms_v2.menu()
     sms_v2.choice_handle(user_choice_in_menu)
-
-
