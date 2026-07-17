@@ -1,7 +1,3 @@
-# LEVEL 1 (creating a class and printing the menu)
-
-# LEVEL 4
-
 class Student:
     def __init__(self,Roll_no,Name,Marks):
         self.Roll_no=Roll_no
@@ -27,7 +23,7 @@ class student_management_system_v2:
         user_choice= int(input("Enter the number according to your choice: "))   # Exception handling will be added if the given input is not integer
         return user_choice
 
-# LEVEL 2 AND 3
+
 
     def choice_handle(self,user_choice):
         
@@ -38,12 +34,15 @@ class student_management_system_v2:
             self.add_student()
         elif user_choice== 2:
             print("You have selected to view students.")
+            self.view_student()
         elif user_choice== 3:
             print("You have selected to update a student.")
+            self.update_student()
         elif user_choice== 4:
             print("You have selected to delete a student.")
         elif user_choice== 5:
             print("You have selected to search for a student.")
+            self.search_student()
         elif user_choice== 6:
             print("You have selected to exit.")
             print("Are you sure you want to Exit?")
@@ -55,7 +54,6 @@ class student_management_system_v2:
             else:
                 # sms_v2.menu()
     
-    # LEVEL 5
     def add_student(self):
         Roll_no= int(input("Enter the Roll No of the student: "))
         Name= input("Enter the name of the student: ")
@@ -65,6 +63,42 @@ class student_management_system_v2:
         self.students.append(student_details)
         
     def view_student(self):
+        if len(self.students)==0:
+            print("No students found in the records.")
+        else:
+            for stu in self.students:
+                print(stu.Roll_no)
+                print(stu.Name)
+                print(stu.Marks)
+    
+    def search_student(self):
+        if len(self.students)==0:
+            print("No student found in the records.")
+        else:
+            roll_number_to_be_searched= int(input("Enter the roll number of the student to search: "))
+            for stu in self.students:
+                if roll_number_to_be_searched== stu.Roll_no:
+                    print(stu.Roll_no)
+                    print(stu.Name)
+                    print(stu.Marks)
+                    break
+
+    def update_student(self):
+        if len(self.students)==0:
+            print("No student found in the records.")
+        else:
+            roll_number_to_be_updated= int(input("Enter the roll number of the student to update"))
+            for stu in self.students:
+                if roll_number_to_be_updated==stu.Roll_no:
+                    updated_name= input("Enter the new name of studnet: ")
+                    updated_marks= int(input("Enter the new marks of the student: "))
+                    stu.Marks= updated_marks
+                    stu.Name= updated_name
+                    break
+                    
+
+
+
 
         
 sms_v2 = student_management_system_v2()
