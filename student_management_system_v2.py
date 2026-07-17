@@ -3,7 +3,8 @@
 
 class student_management_system_v2:
     def __init__(self):
-        
+        self.students= []
+
     def menu(self):
         print("====STUDENT MANAGEMENT SYSTEM====")
         print("1. Add Student")
@@ -26,6 +27,7 @@ class student_management_system_v2:
 
         if user_choice== 1:
             print("You have selected to add a student.")
+            self.add_student()
         elif user_choice== 2:
             print("You have selected to view students.")
         elif user_choice== 3:
@@ -51,6 +53,7 @@ class student_management_system_v2:
         Marks= int(input("Enter the Marks of the student: "))
 
         student_details= Student(Roll_no,Name,Marks) # LEVEL 5 END
+        self.students.append(student_details)
         
 
         
