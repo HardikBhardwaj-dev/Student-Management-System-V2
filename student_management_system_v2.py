@@ -173,17 +173,18 @@ class student_management_system_v2:
             for student in self.students:
                 writer.writerow([student.Roll_no,student.Name,student.Marks])
 
+
     def load_student(self):
         with open("xyz.csv", "r", newline="") as load_file:
             reader = csv.reader(load_file)
 
-        for student in reader:
-            Roll_no = int(student[0])
-            Name = student[1]
-            Marks = int(student[2])
+            for student in reader:
+                Roll_no = int(student[0])
+                Name = student[1]
+                Marks = int(student[2])
 
-            student_object = Student(Roll_no, Name, Marks)
-            self.students.append(student_object)
+                student_object = Student(Roll_no, Name, Marks)
+                self.students.append(student_object)
 
 
 sms_v2 = student_management_system_v2()
