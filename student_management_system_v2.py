@@ -10,6 +10,7 @@ class student_management_system_v2:
     def __init__(self):
         self.students= []
         self.Program_running= True
+        self.load_student()
 
     def menu(self):
         print("====STUDENT MANAGEMENT SYSTEM====")
