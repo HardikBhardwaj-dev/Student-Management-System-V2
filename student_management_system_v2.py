@@ -1,3 +1,5 @@
+import csv
+
 class Student:
     def __init__(self,Roll_no,Name,Marks):
         self.Roll_no=Roll_no
@@ -85,6 +87,7 @@ class student_management_system_v2:
 
         student_details= Student(Roll_no,Name,Marks) # LEVEL 5 END
         self.students.append(student_details)
+        self.save_student()
         
     def view_student(self):
         if len(self.students)==0:
@@ -137,6 +140,7 @@ class student_management_system_v2:
                     stu.Marks= updated_marks
                     stu.Name= updated_name
                     print("Student updated successfully.")
+                    self.save_student()
                     break
             else:
                 print("No student with this roll number found in records.")
@@ -157,10 +161,28 @@ class student_management_system_v2:
                 if roll_number_to_be_deleted== stu.Roll_no:
                     self.students.remove(stu)
                     print("Student deleted successfully.")
+                    self.save_student()
                     break
             else:
                 print("No student with this roll number found in records.")
 
+    def save_student(self):
+        with open("xyz.csv","w",newline="") as file:
+            writer= csv.writer(file)
+            for student in self.students:
+                writer.writerow([student.Roll_no,student.Name,student.Marks])
+
+    def load_student(self):
+        with open("xyz.csv", "r", newline="") as load_file:
+            reader = csv.reader(load_file)
+
+        for student in reader:
+            Roll_no = int(student[0])
+            Name = student[1]
+            Marks = int(student[2])
+
+            student_object = Student(Roll_no, Name, Marks)
+            self.students.append(student_object)
 
 
 sms_v2 = student_management_system_v2()
