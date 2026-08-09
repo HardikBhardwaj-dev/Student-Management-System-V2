@@ -72,6 +72,9 @@ class student_management_system_v2:
         while True:
             try:
                 Roll_no= int(input("Enter the Roll No of the student: "))
+                if any(Roll_no== stu.Roll_no for stu in self.students):
+                    print("Student with this roll number already exists.")
+                    continue
                 break
             except ValueError:
                 print("Roll no of the student can only be in integers ex: 1,2,3,4....")
@@ -85,7 +88,7 @@ class student_management_system_v2:
             except ValueError:
                 print("Marks of the student can only be in integer ex: 1,2,3,4....")
 
-        student_details= Student(Roll_no,Name,Marks) # LEVEL 5 END
+        student_details= Student(Roll_no,Name,Marks) 
         self.students.append(student_details)
         self.save_student()
         
