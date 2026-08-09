@@ -66,7 +66,6 @@ class student_management_system_v2:
                 print("Exiting the application....")
                 self.Program_running=False
             else:
-                # sms_v2.menu()
                 pass
     
     def add_student(self):
@@ -175,18 +174,20 @@ class student_management_system_v2:
 
 
     def load_student(self):
-        with open("xyz.csv", "r", newline="") as load_file:
-            reader = csv.reader(load_file)
+        try:
+            with open("xyz.csv", "r", newline="") as load_file:
+                reader = csv.reader(load_file)
 
-            for student in reader:
-                Roll_no = int(student[0])
-                Name = student[1]
-                Marks = int(student[2])
+                for student in reader:
+                    Roll_no = int(student[0])
+                    Name = student[1]
+                    Marks = int(student[2])
 
-                student_object = Student(Roll_no, Name, Marks)
-                self.students.append(student_object)
+                    student_object = Student(Roll_no, Name, Marks)
+                    self.students.append(student_object)
 
-
+        except FileNotFoundError:
+            print("Error: The requested file could not be found.")
 sms_v2 = student_management_system_v2()
 
 while sms_v2.Program_running:
