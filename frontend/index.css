@@ -1,0 +1,18 @@
+#sms_v2{
+    text-align: center;
+    background-color: #008000;
+}
+
+#options{
+    background-color: blue;
+    display: flex;
+    width: 200px;
+    padding: 20px;
+    flex-direction: column;
+}
+#options a{
+    margin: 5px;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+}
