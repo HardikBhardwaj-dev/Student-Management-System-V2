@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3tG6765tV0IwWhxz8LT5OT3nGEutjUM6pldYsPYb7uQ&s=10">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1>STUDENT MANAGEMENT SYSTEM</h1> <!-- Text align center-->
     <!-- SiderBar -->
-    <a href="index.html">Dashboard</a> <!--Text align center-->
+    <div id="sidebar">
+    <a href="index.html">DashBoard</a> <!--Text align center-->
     <a href="">Add Student</a>
     <a href="">View Student</a>
     <a href="">Update Student</a>
     <a href="">Delete Student</a>
     <a href="">Search Student</a>
+    </div>
 
     <!-- DashBoard table of all students -->
-     <br><br><br>
+     <br>
+    <div id="table">
     <h3>All Students</h3>
     <table border="3" height="500px" width="650px" style="text-align: center;">
         <tr>
@@ -53,10 +57,11 @@
         <td>99</td>
         </tr>
     </table>
-    
+    </div>
+
 
     <br><br><br>
-    <p> <b>@2026 Student Management System. All rights reserved. </b><br>  <!-- Add style to text align center -->
+    <p id="copyright"> <b>@2026 Student Management System. All rights reserved. </b><br>  <!-- Add style to text align center -->
        by Hardik Bhardwaj</p>
     
 

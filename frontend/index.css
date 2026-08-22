@@ -1,0 +1,29 @@
+#sidebar{
+    text-align: center;
+    
+    border-color: orange;
+    padding: 5px;
+
+
+}
+h1{
+    text-align: center;
+}
+
+body{
+    background-color: #120b08;
+    color: white;
+    
+}
+
+#copyright{
+    text-align: center;
+    color: red;
+    border-top: 3px solid;
+    border-color: orange;
+    padding: 5px;
+}
+
+#table{
+    border: 1px solid;
+}
